@@ -3,7 +3,7 @@ import { JSONPath } from "jsonpath-plus";
 import { colorPalette } from "../global-theme";
 
 export const JsonPathExpression = types
-  .model("JsonFile", {
+  .model("JsonPathExpression", {
     query: types.maybeNull(types.string),
   })
   .views((self) => ({
