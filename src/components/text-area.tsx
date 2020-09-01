@@ -63,12 +63,12 @@ const TextAreaComponent = injectStore((props: TextAreaComponentProps) => {
 
   const [startPosition, setStartPosition] = useState(0);
   const [endPosition, setEndPosition] = useState(0);
-  const [isLineVisible, setIsLineVisible] = useState(false);
+  const DELAY = 900;
 
   useEffect(() => {
     setTimeout(() => {
       endLoading();
-    }, 900);
+    }, DELAY);
   });
 
   const collapseLines = (startIndex: number) => {
@@ -79,7 +79,6 @@ const TextAreaComponent = injectStore((props: TextAreaComponentProps) => {
         num -= 1;
         if (num === 0) {
           setEndPosition(i - 1);
-          setIsLineVisible(!isLineVisible);
           break;
         }
       } else if (getContentByLines()[i].includes("{")) {
@@ -93,15 +92,13 @@ const TextAreaComponent = injectStore((props: TextAreaComponentProps) => {
       if (line.includes("{")) {
         return (
           <TextLine
-            key={line + index}
-            hide={
-              startPosition <= index && endPosition >= index && isLineVisible
-            }
+            key={line + '_'+ index}
+            hide={isLineVisible(index)}
           >
-            {isLineVisible && startPosition - 1 === index ? (
+            {startPosition - 1 === index ? (
               <>
                 <span>{line}</span>{" "}
-                <IconButton onClick={() => setIsLineVisible(!isLineVisible)}>
+                <IconButton onClick={() => [setStartPosition(0), setEndPosition(0)]}>
                   <AddIcon />
                 </IconButton>
               </>
@@ -118,10 +115,8 @@ const TextAreaComponent = injectStore((props: TextAreaComponentProps) => {
       } else {
         return (
           <TextLine
-            key={line + index}
-            hide={
-              startPosition <= index && endPosition >= index && isLineVisible
-            }
+            key={line + '_'+ index}
+            hide={isLineVisible(index)}
             color={line.includes("span")}
           >
             <span>
@@ -134,6 +129,10 @@ const TextAreaComponent = injectStore((props: TextAreaComponentProps) => {
       }
     });
     return formattedContent;
+  };
+
+  const isLineVisible = (index: number) => {
+    return startPosition !== 0 && endPosition !== 0 && startPosition <= index && endPosition >= index;
   };
 
   return (
