@@ -25,11 +25,12 @@ export const JsonPathExpression = types
   .views((self) => ({
     getHighlightedText() {
       let content = JSON.stringify(
-        self.dataStore.jsonFile.getFileJSONContent()
+        self.dataStore.jsonFile.getFileJSONContent(),
+        null,
+        "\t"
       );
-
-      if (content === '{}') {
-        return '';
+      if (content === "{}") {
+        return "";
       } else {
         if (self.getExpressionResult().length === 0) {
           return content;
@@ -44,9 +45,13 @@ export const JsonPathExpression = types
             }
           });
         }
-
       }
       return content;
+    },
+  }))
+  .views((self) => ({
+    getContentByLines() {
+      return self.getHighlightedText()!.split("\n");
     },
   }))
   .actions((self) => ({
