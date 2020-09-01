@@ -3,11 +3,11 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core";
 export const colorPalette = {
   darkBlue: "#0f1724",
   lightBlue: "#92abcf",
-  blue: '#24364e',
+  blue: "#24364e",
   white: "#ffffff",
   red: "#f44336",
-  darkGrey: '#272e3a',
-  lightGrey: '#9fa2a7',
+  darkGrey: "#272e3a",
+  lightGrey: "#9fa2a7",
 };
 
 let theme = createMuiTheme({
@@ -15,6 +15,11 @@ let theme = createMuiTheme({
     primary: {
       main: colorPalette.darkBlue,
       dark: colorPalette.lightBlue,
+    },
+  },
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
     },
   },
   overrides: {
@@ -25,8 +30,8 @@ let theme = createMuiTheme({
         backgroundColor: colorPalette.white,
         borderRadius: "25px",
         boxShadow: "0 1px 6px 0 " + colorPalette.lightGrey,
-        '&:hover $notchedOutline, &$focused $notchedOutline': {
-          borderWidth: '1.5px',
+        "&:hover $notchedOutline, &$focused $notchedOutline": {
+          borderWidth: "1.5px",
         },
       },
     },
@@ -41,34 +46,33 @@ let theme = createMuiTheme({
     MuiIconButton: {
       root: {
         color: colorPalette.white,
-
-      }
+      },
     },
     MuiTypography: {
       root: {
         fontFamily: "sans-serif",
         color: colorPalette.white,
-        whiteSpace: 'nowrap'
+        whiteSpace: "nowrap",
       },
     },
     MuiPaper: {
       root: {
-        position: 'absolute',
-        backgroundColor: colorPalette.red + '!important',
-        '& div': {
-          color: 'unset !important'
-        }
-      }
+        position: "absolute",
+        backgroundColor: colorPalette.red + "!important",
+        "& div": {
+          color: "unset !important",
+        },
+      },
     },
     MuiCircularProgress: {
       root: {
-        position: 'absolute',
+        position: "absolute",
         zIndex: 1,
-        width: '100px!important',
-        height: '100px!important',
-        color:  colorPalette.white + '!important'
-      }
-    }
+        width: "100px!important",
+        height: "100px!important",
+        color: colorPalette.white + "!important",
+      },
+    },
   },
 });
 
