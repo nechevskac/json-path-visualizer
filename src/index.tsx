@@ -27,7 +27,7 @@ ReactDOM.render(
   <React.StrictMode>
     <MuiThemeProvider theme={GlobalTheme}>
       <App />
-    </MuiThemeProvider>,
+    </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

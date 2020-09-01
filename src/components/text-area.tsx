@@ -25,7 +25,7 @@ const TextArea = styled(Box)({
 });
 
 const DeleteIcon = styled(IconButton)({
-  top: "635px",
+  top: "653px",
   position: "fixed",
   backgroundColor: colorPalette.darkGrey,
   opacity: "0.7",

@@ -6,11 +6,11 @@ import UIStore from "./ui-store";
 const RootStore = types.model("RootStore", {
   dataStore: types.optional(DataStore, {
     jsonFile: { name: "", content: "" },
-    jsonPathExpression: { query: ""}
+    jsonPathExpression: { query: "" },
   }),
   uiStore: types.optional(UIStore, {
     isAlertOpen: false,
-    isLoading: false
+    isLoading: false,
   }),
 });
 

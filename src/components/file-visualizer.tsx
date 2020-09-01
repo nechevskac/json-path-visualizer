@@ -7,7 +7,6 @@ import FileUploadComponent from "./file-upload";
 import SearchComponent from "./search";
 
 const FileVisualizerComponent = () => {
-
   return (
     <Box
       display="flex"

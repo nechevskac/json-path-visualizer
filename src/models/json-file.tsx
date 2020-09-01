@@ -8,11 +8,11 @@ export const JsonFile = types
   .views((self) => ({
     getFileContent() {
       return self.content as string;
-    },    
+    },
     getFileJSONContent() {
       let text = {};
-      if (self.content !== '') {
-        text = JSON.parse(self.content as string)
+      if (self.content !== "") {
+        text = JSON.parse(self.content as string);
       }
       return text;
     },
