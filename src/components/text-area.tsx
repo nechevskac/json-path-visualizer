@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import injectStore from "./utils/mobx-react";
 import { IRootStore } from "../stores/root-store";
 
-import { Box, CircularProgress, Tooltip, IconButton } from "@material-ui/core";
+import { Box, Tooltip, IconButton } from "@material-ui/core";
 import styled from "@material-ui/styles/styled";
 import AddRoundedIcon from "@material-ui/icons/AddRounded";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 import RemoveRoundedIcon from "@material-ui/icons/RemoveRounded";
 import { colorPalette } from "../global-theme";
+import CircularProgressComponent from "./circular-progress";
 
 const TextArea = styled(Box)({
   backgroundColor: colorPalette.blue,
@@ -138,14 +139,7 @@ const TextAreaComponent = injectStore((props: TextAreaComponentProps) => {
   return (
     <TextArea>
       {isLoading ? (
-        <Box
-          display="flex"
-          justifyContent="center"
-          height="100%"
-          alignItems="center"
-        >
-          <CircularProgress />
-        </Box>
+       <CircularProgressComponent />
       ) : (
         <>
           {getFormattedContent()}
