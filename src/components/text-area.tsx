@@ -14,7 +14,7 @@ const TextArea = styled(Box)({
   backgroundColor: colorPalette.blue,
   position: "relative",
   borderRadius: "5px",
-  marginTop: "1.5rem",
+  marginTop: "1.2rem",
   height: "30rem",
   width: "65%",
   minWidth: "20rem",
@@ -26,7 +26,7 @@ const TextArea = styled(Box)({
 });
 
 const DeleteIcon = styled(IconButton)({
-  top: "653px",
+  top: "657px",
   position: "fixed",
   backgroundColor: colorPalette.darkGrey,
   opacity: "0.7",
@@ -34,12 +34,12 @@ const DeleteIcon = styled(IconButton)({
 
 const AddIcon = styled(AddRoundedIcon)({
   fontSize: "0.875rem",
-  color: colorPalette.darkBlue,
+  color: colorPalette.green,
 });
 
 const RemoveIcon = styled(RemoveRoundedIcon)({
   fontSize: "0.875rem",
-  color: colorPalette.darkBlue,
+  color: colorPalette.green,
 });
 
 const TextLine = styled(({ hide, color, ...props }) => <div {...props}></div>)({

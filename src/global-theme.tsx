@@ -8,6 +8,7 @@ export const colorPalette = {
   red: "#f44336",
   darkGrey: "#272e3a",
   lightGrey: "#9fa2a7",
+  green: "#77dd77",
 };
 
 let theme = createMuiTheme({

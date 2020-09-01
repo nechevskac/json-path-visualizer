@@ -2,8 +2,15 @@ import React, { useRef } from "react";
 import injectStore from "./utils/mobx-react";
 import { IRootStore } from "../stores/root-store";
 
-import { Box, Typography, Tooltip, IconButton } from "@material-ui/core";
+import { Box, Typography, Tooltip, IconButton, styled } from "@material-ui/core";
+import CheckRoundedIcon from '@material-ui/icons/CheckRounded';
 import FolderOpenOutlinedIcon from "@material-ui/icons/FolderOpenOutlined";
+import { colorPalette } from "../global-theme";
+
+const CheckIcon = styled(CheckRoundedIcon)({
+  color: colorPalette.green,
+  marginLeft: '1rem'
+});
 
 type FileUploadComponentProps = {
   rootStore?: IRootStore;
@@ -12,7 +19,7 @@ type FileUploadComponentProps = {
 const FileUploadComponent = injectStore((props: FileUploadComponentProps) => {
   const {
     dataStore: {
-      jsonFile: { setJsonFile },
+      jsonFile: { setJsonFile, getFileContent },
     },
     uiStore: { handleIsAlertOpen, startLoading, isLoading },
   } = props.rootStore!;
@@ -55,6 +62,7 @@ const FileUploadComponent = injectStore((props: FileUploadComponentProps) => {
         </Tooltip>
       </IconButton>
       <Typography>Upload a JSON file</Typography>
+      {getFileContent() !== '' && <CheckIcon />}
     </Box>
   );
 });

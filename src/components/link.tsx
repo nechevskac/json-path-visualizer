@@ -19,7 +19,7 @@ const ArrowIcon = styled(KeyboardArrowRightRoundedIcon)({
 
 const LinkComponent = () => {
   return (
-    <Box display="flex" alignItems="center" mt={1}>
+    <Box display="flex" alignItems="center" mt={2}>
       <ArrowIcon />
       <Link href="https://restfulapi.net/json-jsonpath/" target="_blank">
         <Typography variant="caption">See JSONPath Syntax</Typography>
